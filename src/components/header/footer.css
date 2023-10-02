@@ -1,0 +1,34 @@
+.footer {
+    background-color: #333; /* Цвет фона для подвала */
+    color: #fff; /* Цвет текста */
+    padding: 20px; /* Внутренний отступ */
+    text-align: center; /* Выравнивание текста по центру */
+}
+
+.footer__logo img {
+    max-width: 100px; /* Максимальная ширина логотипа */
+}
+
+.footer__copyright {
+    font-size: 12px; /* Размер шрифта для авторского права */
+    margin-top: 10px; /* Отступ сверху от авторского права */
+}
+
+.footer__contact {
+    font-size: 14px; /* Размер шрифта для контактной информации */
+    margin-top: 10px; /* Отступ сверху от контактной информации */
+}
+
+.footer__social {
+    margin-top: 10px; /* Отступ сверху от ссылок на социальные сети */
+}
+
+.footer__social a {
+    text-decoration: none; /* Убираем подчеркивание для ссылок */
+    color: #fff; /* Цвет текста ссылок */
+    margin: 0 10px; /* Горизонтальный отступ между ссылками */
+}
+
+.footer__social a:hover {
+    text-decoration: underline; /* Добавляем подчеркивание при наведении на ссылки */
+}

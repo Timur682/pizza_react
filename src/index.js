@@ -1,17 +1,35 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { createRoot } from 'react-dom/client';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import './bootstrap.scss';
+import App from './App';
+import reportWebVitals from "./reportWebVitals";
+import { AuthContextProvider } from "./contexts/AuthContext";
+import { QueryClient, QueryClientProvider } from "react-query";
+import DarkModeContextWrapper from "./contexts/DarkModeContext";
+import { CartContextProvider } from './contexts/CartContext'; 
+
+const queryClient = new QueryClient();
+
+const root = createRoot(document.getElementById('root'));
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+            <QueryClientProvider client={queryClient}>
+                <AuthContextProvider>
+                    <DarkModeContextWrapper>
+                        <BrowserRouter>
+                        <CartContextProvider>
+                            <App />
+                          </CartContextProvider>
+
+                        </BrowserRouter>
+                    </DarkModeContextWrapper>
+                </AuthContextProvider>
+            </QueryClientProvider>
+    </React.StrictMode>,
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

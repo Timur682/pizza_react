@@ -11,7 +11,7 @@ const Register = () => {
     const nav = useNavigate();
     const { isLoggedIn } = useContext(AuthContext);
     const [isLoading, setIsLoading] = useState(false);
-    const [errorMessage, setErrorMessage] = useState(undefined);
+    const [setErrorMessage] = useState(undefined);
 
     const initialValues = {
         username: "",
@@ -50,9 +50,15 @@ const validationSchema = Yup.object({
                 nav('/login')
             })
             .catch((e) => {
-                console.log(e)
-                setErrorMessage(e.response.data.detail);
-            })
+                console.log(e);
+                setErrorMessage("An error occurred during registration, please try again later");
+                Swal.fire({
+                  title: "Error",
+                  text: "An error occurred during registration, please try again later",
+                  icon: "error",
+                  confirmButtonText: "Ok"
+                });
+              })              
             .finally(()=>{
                 setIsLoading(false)
                 //setErrorMessage(undefined)

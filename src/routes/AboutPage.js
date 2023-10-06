@@ -17,7 +17,10 @@ const AboutPage = () => {
         </ul>
       </div>
       <p className="app-description">
-        The "Pizza delicious" aims to provide users with a seamless and enjoyable online pizza ordering experience, with a user-friendly interface, personalized options, and efficient order management. Whether you're a pizza aficionado or simply craving a delicious meal, the "Pizza App" is here to satisfy your cravings.
+        The "Pizza delicious" aims to provide users with a seamless and enjoyable online 
+        pizza ordering experience, with a user-friendly interface, personalized options, 
+        and efficient order management. Whether you're a pizza aficionado or simply craving 
+        a delicious meal, the "Pizza delicious" is here to satisfy your cravings.
       </p>
     </div>
   );

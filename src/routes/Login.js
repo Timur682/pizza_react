@@ -5,8 +5,9 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import Spinner from "../components/Spinner";
 import authService from "../services/auth.service";
-import TextField from '@mui/material/TextField';
+import swal from 'sweetalert';
 import './Login.scss'; 
+
 const Login = () => {
   const nav = useNavigate();
   const { isLoggedIn, login } = useContext(AuthContext);
@@ -42,8 +43,9 @@ const Login = () => {
       })
       .catch((e) => {
         console.log(e);
-        seterrorMessage(JSON.stringify(e));
-      })
+        seterrorMessage("An error occurred during login, please try again later");
+        swal("Error", "An error occurred during login, please try again later", "error");
+      })      
       .finally(() => {
         setisLoading(false);
         //seterrorMessage(undefined)

@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = 'http://localhost:8081/api/v1/auth';
+const baseUrl = 'http://165.232.113.240:80/api/v1/auth';
 const register = (email, username, password) => {
     return axios.post(`${baseUrl}/signup`, { email, username, password })
 }

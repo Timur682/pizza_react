@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const client = axios.create({ baseURL: "http://localhost:8081/api/v1" });
+const client = axios.create({ baseURL: "http://165.232.113.240:80/api/v1" });
 
 const onSuccess = (response) => response;
 const onFailure = (err) => {

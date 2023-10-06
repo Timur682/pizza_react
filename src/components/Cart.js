@@ -35,7 +35,6 @@ const Cart = () => {
   };
     
   const totalAmount = cartOrder.items.reduce((total, item) => total + item.price, 0);
- console.log('dqdwqdqw', cartState);
  const handleCheckout = async () => {
   try {
     // Получаем массив имен пицц

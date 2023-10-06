@@ -1,25 +1,25 @@
-// FilterForm.js - компонент для формы фильтрации
+// FilterForm.js - Component for the filtering form
 import React, { useState } from 'react';
 
 function FilterForm({ onFilter }) {
-  const [category, setCategory] = useState('');
+  const [name, setName] = useState('');
   const [price, setPrice] = useState('');
 
   const handleFilter = () => {
-    onFilter({ category, price });
+    onFilter({ name, price });
   };
 
   return (
     <div>
       <label>
-        Категория:
-        <input type="text" value={category} onChange={e => setCategory(e.target.value)} />
+        Name:
+        <input type="text" value={name} onChange={e => setName(e.target.value)} />
       </label>
       <label>
-        Цена:
+        Price:
         <input type="number" value={price} onChange={e => setPrice(e.target.value)} />
       </label>
-      <button onClick={handleFilter}>Применить фильтр</button>
+      <button onClick={handleFilter}>Apply Filter</button>
     </div>
   );
 }

@@ -10,7 +10,7 @@ import Register from './routes/Register';
 import Card from './components/card/Card';
 import AuthContext from './contexts/AuthContext';
 import { CartContextProvider } from "./contexts/CartContext";
-import Cart from "./components/Cart"; // Правильный путь к компоненту Cart
+import Cart from "./components/Cart"; 
 
 const App = () => {
     const { isLoggedIn } = useContext(AuthContext); // Получаем значение isLoggedIn из контекста

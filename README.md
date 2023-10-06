@@ -41,9 +41,13 @@ npm start
 
 Usage
 Use the search bar to search for pizzas by name, description, or price.
+
 Click on "Order Now" button to add a pizza to your cart.
+
 Click on the cart icon in the header to view your cart and proceed to checkout.
+
 Contributing
+
 Contributions, issues, and feature requests are welcome!
 Feel free to check issues page.
 

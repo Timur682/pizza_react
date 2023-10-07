@@ -20,25 +20,19 @@ const Login = () => {
     password: "",
   };
 
-  //Validations:
   const validationSchema = Yup.object({
     username: Yup.string().min(2).required(),
     password: Yup.string().min(4).required(),
   });
 
-  //will be called by formik if the form is VALID
   const handleLogin = (formValues) => {
     setisLoading(true);
-    //get data from input fields:
     const { username, password } = formValues;
 
-    //submit Post request
     authService
       .login(username, password)
       .then((res) => {
-        //save the JWT for next time:
         login(username, res.token);
-        //Go to Home page:
         nav("/");
       })
       .catch((e) => {
@@ -48,7 +42,6 @@ const Login = () => {
       })      
       .finally(() => {
         setisLoading(false);
-        //seterrorMessage(undefined)
       });
   };
 
@@ -56,57 +49,53 @@ const Login = () => {
     return <Navigate to="/" />;
   }
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleLogin}
-      validationSchema={validationSchema}
-    >
-      <Form>
-        {errorMessage && (
-          <div className="alert alert-danger">{errorMessage}</div>
-        )}
-        {isLoading && <Spinner text="Logging you in..." />}
-        <div className="form-group">
-          {/* Label that describes an input */}
-          <label htmlFor="username" className="form-label">
-            User Name
-          </label>
-          {/* Input Tag */}
-          <Field name="username" type="text" id="username" />
-          {/* Error message for the input */}
-          <ErrorMessage
-            component="div"
-            name="username"
-            className="alert alert-danger"
-          />
-        </div>
+    <div className="register-form mx-auto">
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleLogin}
+        validationSchema={validationSchema}
+      >
+        <Form>
+          {errorMessage && (
+            <div className="alert alert-danger">{errorMessage}</div>
+          )}
+          {isLoading && <Spinner text="Logging you in..." />}
+          <div className="form-group mb-3">
+            <label htmlFor="username" className="form-label">
+              User Name
+            </label>
+            <Field name="username" type="text" id="username" className="form-control" />
+            <ErrorMessage
+              component="div"
+              name="username"
+              className="alert alert-danger mt-2"
+            />
+          </div>
 
-        <div className="form-group">
-          {/* Label that describes an input */}
-          <label htmlFor="password" className="form-label">
-            Password
-          </label>
-          {/* Input Tag */}
-          <Field name="password" type="password" id="password" />
-          {/* Error message for the input */}
-          <ErrorMessage
-            component="div"
-            name="password"
-            className="alert alert-danger"
-          />
-        </div>
+          <div className="form-group mb-3">
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
+            <Field name="password" type="password" id="password" className="form-control" />
+            <ErrorMessage
+              component="div"
+              name="password"
+              className="alert alert-danger mt-2"
+            />
+          </div>
 
-        <div className="col-12">
-          <button
-            disabled={isLoading}
-            type="submit"
-            className="btn btn-primary"
-          >
-            Login
-          </button>
-        </div>
-      </Form>
-    </Formik>
+          <div className="col-12">
+            <button
+              disabled={isLoading}
+              type="submit"
+              className="btn btn-primary"
+            >
+              Login
+            </button>
+          </div>
+        </Form>
+      </Formik>
+    </div>
   );
 };
 

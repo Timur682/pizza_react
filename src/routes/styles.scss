@@ -30,11 +30,34 @@
   }
   .dropdown {
     position: absolute;
-    top: 230px;
+    top: 110px;
     right: 0;
   }
   .image {
     width: 225px;
     height: 200px;
+  }
+  .search-form {
+    margin-bottom: 10px;
+  }
+  
+  .search-input {
+    width: 200px;
+    font-size: 14px;
+  }
+  
+  .search-button {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+  
+  .flex-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .container {
+    margin-top: 20px;
   }
   

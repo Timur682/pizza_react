@@ -1,26 +1,37 @@
 import React, { useState } from 'react';
-import { Form, FormControl } from 'react-bootstrap';
+import { Form, FormControl, Button } from 'react-bootstrap';
+import '../routes/styles.scss'; // Импортируем файл стилей
 
 const SearchBar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleChange = (event) => {
-    const searchTerm = event.target.value;
-    setSearchTerm(searchTerm);
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
     onSearch(searchTerm);
   };
 
   return (
-    <Form inline className="mb-3">
-      <FormControl
-        type="text"
-        placeholder="Search"
-        className="mr-sm-2"
-        name="search"
-        value={searchTerm}
-        onChange={handleChange}
-        style={{ width: '200px', fontSize: '14px' }}
-      />
+    <Form onSubmit={handleSubmit} className="search-form">
+      <div className="flex-container">
+        <FormControl
+          type="text"
+          placeholder="Search"
+          className="search-input"
+          name="search"
+          value={searchTerm}
+          onChange={handleChange}
+        />
+        <Button 
+          variant="outline-primary" 
+          type="submit" 
+          className="search-button">
+          Search
+        </Button>
+      </div>
     </Form>
   );
 };

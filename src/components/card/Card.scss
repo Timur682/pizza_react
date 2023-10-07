@@ -7,18 +7,18 @@
   border-radius: 4px;
   transition: transform 0.2s, box-shadow 0.2s;
   position: relative;
-  overflow: hidden; /* Добавьте, чтобы скрыть превышающий контент */
+  overflow: hidden; 
 }
 
 .card:hover {
-  transform: translateY(-5px); /* Немного поднимите карточку при наведении */
+  transform: translateY(-5px); 
   box-shadow: 4px 8px 16px rgba(255, 102, 51, 0.2);
 }
 
 .card.Img {
   max-width: 15px;
   height: 15px;
-  object-fit: cover; /* Позволяет изображению заполнять контейнер без искажения */
+  object-fit: cover; 
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   transition: transform 0.2s;
@@ -31,7 +31,7 @@
 
 
 .card:hover img {
-  transform: scale(1.05); /* Увеличьте изображение при наведении */
+  transform: scale(1.05); 
 }
 
 .card-body {
@@ -43,10 +43,10 @@
   background-color: #fff;
 }
 .price {
-  font-size: 1.2rem; /* Размер шрифта цены */
-  font-weight: bold; /* Жирный шрифт */
-  color: #ff6600; /* Цвет текста цены (например, оранжевый) */
-  margin-top: 10px; /* Отступ сверху от остального контента */
+  font-size: 1.2rem; 
+  font-weight: bold; 
+  color: #ff6600; 
+  margin-top: 5px; 
   margin-bottom: 10px 
 }
 

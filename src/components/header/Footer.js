@@ -13,7 +13,7 @@ const Footer = () => {
             </div>
             <div className="footer__contact">
                 {/* Contact information, e.g., email or phone */}
-                Contact us: karabanovt@email.com
+                Contact us: karabanovt@gmail.com
             </div>
         
         </footer>

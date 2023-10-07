@@ -11,6 +11,7 @@ import Card from './components/card/Card';
 import AuthContext from './contexts/AuthContext';
 import { CartContextProvider } from "./contexts/CartContext";
 import Cart from "./components/Cart"; 
+import Unauthorized from './routes/Unauthorized';
 
 const App = () => {
     const { isLoggedIn } = useContext(AuthContext); // Получаем значение isLoggedIn из контекста
@@ -27,7 +28,7 @@ const App = () => {
                     <Route path="*" element={<NotFound />} />
                     <Route path="/card" element={<Card />} />
                     <Route path="/cart" element={<Cart />} /> {/* Используйте Cart компонент */}
-                    {/* Добавьте другие маршруты для других страниц */}
+                    <Route path="/unauthorized" element={<Unauthorized />} />
                 </Routes>
                 <Footer />
             </CartContextProvider>

@@ -48,7 +48,7 @@ const Cart = () => {
     };
 
     // Отправляем данные корзины на сервер
-    await axios.post('http://165.232.113.240/api/orders', orderData);
+    await axios.post('http://localhost/api/orders', orderData);
     swal("Order placed successfully!", "Your order has been placed.", "success");
     // Очищаем корзину после успешной оплаты
     setCardOrder({ items: [] });

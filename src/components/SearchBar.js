@@ -1,24 +1,27 @@
-// SearchBar.js
 import React, { useState } from 'react';
+import { Form, FormControl } from 'react-bootstrap';
 
 const SearchBar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const handleSearchChange = (event) => {
-    const value = event.target.value;
-    setSearchTerm(value);
-    onSearch(value); // Вызывайте функцию поиска при изменении значения поля
+  const handleChange = (event) => {
+    const searchTerm = event.target.value;
+    setSearchTerm(searchTerm);
+    onSearch(searchTerm);
   };
 
   return (
-    <div className="search-bar">
-      <input
+    <Form inline className="mb-3">
+      <FormControl
         type="text"
-        placeholder="Search..."
+        placeholder="Search"
+        className="mr-sm-2"
+        name="search"
         value={searchTerm}
-        onChange={handleSearchChange}
+        onChange={handleChange}
+        style={{ width: '200px', fontSize: '14px' }}
       />
-    </div>
+    </Form>
   );
 };
 

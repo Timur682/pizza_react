@@ -32,7 +32,6 @@ const AdminPage = () => {
   }, []);
 
   useEffect(() => {
-    // Принудительно перерисовывает компонент после изменения pizzas
   }, [pizzas]);
 
   const handleChange = (e) => {

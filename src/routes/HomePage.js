@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext  } from 'react';
 import { Container, Card, Button, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import { useCart } from '../contexts/CartContext';
@@ -6,22 +6,26 @@ import SearchBar from '../components/SearchBar';
 import { SimpleDropdown } from 'react-js-dropdavn';
 import 'react-js-dropdavn/dist/index.css';
 import './styles.scss'; 
+import AuthContext from '../contexts/AuthContext';
+import AddPizza from '../admin/AdminPage';
+
 
 const HomePage = () => {
   const { addToCart, cartState } = useCart();
-  const [searchResults, setSearchResults] = useState([]);
   const [pizzas, setPizzas] = useState([]);
   const [error, setError] = useState(null);
   const [sortType, setSortType] = useState('');
   const [displayedPizzas, setDisplayedPizzas] = useState([]);
   const [searchError, setSearchError] = useState('');
+  const { isLoggedIn, username } = useContext(AuthContext);
 
   const data = [
-    {label: 'A-Z', value: 'nameAsc'},
-    {label: 'Z-A', value: 'nameDesc'},
-    {label: 'Lowest to Highest', value: 'priceAsc'},
-    {label: 'Highest to Lowest', value: 'priceDesc'},
-  ];  
+    {label: 'Sort by Name (A-Z)', value: 'nameAsc'},
+    {label: 'Sort by Name (Z-A)', value: 'nameDesc'},
+    {label: 'Sort by Price (Lowest to Highest)', value: 'priceAsc'},
+    {label: 'Sort by Price (Highest to Lowest)', value: 'priceDesc'},
+  ];
+  
 
   const sortPizzas = (pizzas) => {
     const sortedPizzas = [...pizzas];
@@ -70,10 +74,9 @@ const HomePage = () => {
 
     const filteredPizzaList = pizzas.filter((pizza) => {
         const nameMatch = pizza.name.toLowerCase().includes(searchTermLower);
-        const descriptionMatch = pizza.description.toLowerCase().includes(searchTermLower);
         const priceMatch = pizza.price.toString().includes(searchTermLower);
 
-        return nameMatch || descriptionMatch || priceMatch;
+        return nameMatch || priceMatch;
     });
 
     if (filteredPizzaList.length === 0) {
@@ -129,14 +132,15 @@ const HomePage = () => {
                   style={{ width: '225px', height: '200px' }}
                 />
 
-                <Card.Body>
-                  <Card.Title className="">{pizza.name}</Card.Title>
-                  <Card.Text className="">{pizza.description}</Card.Text>
-                  <Card.Text className="price">{pizza.price}</Card.Text>
-                  <Button variant="primary" onClick={() => handleAddToCart(pizza)}>
-                    Order Now
-                  </Button>
-                </Card.Body>
+                  <Card.Body>
+                  <Card.Title className="card-title">{pizza.name}</Card.Title>
+                  <Card.Text className="card-text">{pizza.description}</Card.Text>
+                   <Card.Text className="price">{pizza.price}</Card.Text>
+                    <Button variant="primary" className="order-button" onClick={() => handleAddToCart(pizza)}>
+                     Order Now
+                   </Button>
+</Card.Body>
+
               </Card>
             </Col>
           ))}

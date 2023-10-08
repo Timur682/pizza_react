@@ -26,6 +26,7 @@ const AuthContextProvider = (props) => {
     const login = (username, token) => {
         setUsername(username);
         setToken(token);
+        localStorage.setItem('token', token);
         setIsLoggedIn(true);
     };
     const logout = () => {

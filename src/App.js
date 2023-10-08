@@ -12,13 +12,14 @@ import AuthContext from './contexts/AuthContext';
 import { CartContextProvider } from "./contexts/CartContext";
 import Cart from "./components/Cart"; 
 import Unauthorized from './routes/Unauthorized';
+import AdminPage from './admin/AdminPage';
 
 const App = () => {
-    const { isLoggedIn } = useContext(AuthContext); // Получаем значение isLoggedIn из контекста
+    const { isLoggedIn } = useContext(AuthContext); 
 
     return (
         <>
-            <CartContextProvider> {/* Оберните ваше приложение в CartContextProvider */}
+            <CartContextProvider> 
                 <Header />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
@@ -27,8 +28,10 @@ const App = () => {
                     {!isLoggedIn && <Route path="/register" element={<Register />} />}
                     <Route path="*" element={<NotFound />} />
                     <Route path="/card" element={<Card />} />
-                    <Route path="/cart" element={<Cart />} /> {/* Используйте Cart компонент */}
+                    <Route path="/cart" element={<Cart />} /> 
                     <Route path="/unauthorized" element={<Unauthorized />} />
+                    <Route path="/manage-pizzas" element={<AdminPage />} />
+
                 </Routes>
                 <Footer />
             </CartContextProvider>

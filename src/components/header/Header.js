@@ -1,27 +1,22 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { FcHome } from 'react-icons/fc';
 import AuthContext from '../../contexts/AuthContext';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink, useNavigate } from 'react-router-dom';
 import authService from '../../services/auth.service';
 import './Header.css';
-import { DarkModeContext } from '../../contexts/DarkModeContext';
 
 const Header = () => {
-  const { isLoggedIn, logout } = useContext(AuthContext);
+  const { isLoggedIn, logout, username } = useContext(AuthContext);
   const nav = useNavigate();
   const [isNavExpanded, setNavExpanded] = useState(false);
-  const [cartItemCount, setCartItemCount] = useState(0);
-  const darkModeContext = useContext(DarkModeContext);
-
-  
 
   const handleLogout = () => {
     logout();
     authService.logout();
     nav('/');
   };
-  
+
   const closeNav = () => setNavExpanded(false);
 
   return (
@@ -62,6 +57,11 @@ const Header = () => {
                   <button className="nav-link" id="cart" to="/cart">
                     <img className="cart__image" src="./image/cart.png" alt="Cart" />
                   </button>
+                </NavLink>
+              )}
+              {username === 'admin' && isLoggedIn && (
+                <NavLink className="nav-link" to="/manage-pizzas">
+                  Manage Pizzas
                 </NavLink>
               )}
               {isLoggedIn && (

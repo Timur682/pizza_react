@@ -1,0 +1,119 @@
+/* styles.css */
+
+.admin-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .admin-page h1 {
+    text-align: center;
+    margin-bottom: 40px; /* Увеличил отступ */
+    font-size: 28px;
+    color: #007bff;
+  }
+  
+  .form-container {
+    margin-bottom: 20px;
+  }
+  
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .input-container label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .input-container input,
+  .input-container textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .input-container textarea {
+    resize: vertical;
+  }
+  
+  .button-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .button-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .button-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .pizzas-container {
+    margin-top: 20px;
+  }
+  
+  .pizzas-container h2 {
+    margin-bottom: 10px;
+  }
+  
+  .pizzas-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .pizzas-container li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .pizzas-container li:last-child {
+    border-bottom: none;
+  }
+  
+  .pizzas-container button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .pizzas-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .pizzas-container button.edit-button {
+    background-color: #ffc107;
+    color: #000;
+  }
+  
+  .pizzas-container button.edit-button:hover {
+    background-color: #e0a800;
+  }
+  
+  .pizzas-container button.delete-button {
+    background-color: #dc3545;
+  }
+  
+  .pizzas-container button.delete-button:hover {
+    background-color: #c82333;
+  }
+  

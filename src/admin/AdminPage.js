@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const AdminPage = () => {
   const [pizzas, setPizzas] = useState([]);
@@ -94,48 +95,74 @@ const AdminPage = () => {
   };
 
   return (
-    <div>
-      <h1>Admin Page</h1>
-      <div>
-        <input
-          type="text"
-          name="name"
-          value={pizzaData.name}
-          onChange={handleChange}
-          placeholder="Pizza name"
-        />
-        <input
-          type="text"
-          name="image"
-          value={pizzaData.image}
-          onChange={handleChange}
-          placeholder="Pizza image URL"
-        />
-        <input
-          type="number"
-          name="price"
-          value={pizzaData.price}
-          onChange={handleChange}
-          placeholder="Pizza price"
-        />
-        <textarea
-          name="description"
-          value={pizzaData.description}
-          onChange={handleChange}
-          placeholder="Pizza description"
-        />
-        <button onClick={handleSubmit}>
-          {selectedPizza ? 'Update Pizza' : 'Create Pizza'}
-        </button>
+    <div className="container mt-5">
+      <h1 className="text-center mb-5">Admin Page</h1>
+      <div className="mb-5">
+        <div className="mb-3">
+          <label htmlFor="name" className="form-label">Pizza Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={pizzaData.name}
+            onChange={handleChange}
+            placeholder="Pizza name"
+            className="form-control"
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="image" className="form-label">Pizza Image URL:</label>
+          <input
+            type="text"
+            id="image"
+            name="image"
+            value={pizzaData.image}
+            onChange={handleChange}
+            placeholder="Pizza image URL"
+            className="form-control"
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="price" className="form-label">Pizza Price:</label>
+          <input
+            type="number"
+            id="price"
+            name="price"
+            value={pizzaData.price}
+            onChange={handleChange}
+            placeholder="Pizza price"
+            className="form-control"
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="description" className="form-label">Pizza Description:</label>
+          <textarea
+            id="description"
+            name="description"
+            value={pizzaData.description}
+            onChange={handleChange}
+            placeholder="Pizza description"
+            className="form-control"
+          />
+        </div>
+        <div className="d-grid">
+          <button onClick={handleSubmit} className="btn btn-primary">
+            {selectedPizza ? 'Update Pizza' : 'Create Pizza'}
+          </button>
+        </div>
       </div>
       <div>
-        <h2>Pizzas</h2>
-        <ul>
+        <h2 className="mb-3">Pizzas</h2>
+        <ul className="list-unstyled">
           {pizzas.map(pizza => (
-            <li key={pizza.id}>
-              {pizza.name} - ${pizza.price}
-              <button onClick={() => handleEdit(pizza)}>Edit</button>
-              <button onClick={() => handleDelete(pizza.id)}>Delete</button>
+            <li className="mb-2">
+              <div className="d-flex justify-content-between align-items-center">
+                <span>{pizza.name} - ${pizza.price}</span>
+                <div>
+                  <button className="btn btn-warning me-2" onClick={() => handleEdit(pizza)}>Edit</button>
+                  <button className="btn btn-danger" onClick={() => handleDelete(pizza.id)}>Delete</button>
+                </div>
+              </div>
             </li>
           ))}
         </ul>

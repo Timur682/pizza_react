@@ -40,7 +40,7 @@ npm start
 5. Open your browser and navigate to http://localhost:3000
 
 Usage
-Use the search bar to search for pizzas by name, description, or price.
+Use the search bar to search for pizzas by name or price.
 
 Click on "Order Now" button to add a pizza to your cart.
 

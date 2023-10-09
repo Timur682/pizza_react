@@ -30,7 +30,7 @@ const App = () => {
                     <Route path="*" element={<NotFound />} />
                     <Route path="/card" element={<Card />} />
                     <Route path="/cart" element={<Cart />} /> 
-                    <Route path="/unauthorized" element={<Unauthorized />} />
+                    <Route path="/401" element={<Unauthorized />} />
                     <Route element={<ProtectedRoute />}/>
                      <Route path="/AdminPage" element={<AdminPage />} />
 

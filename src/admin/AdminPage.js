@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 const AdminPage = () => {
   const [pizzas, setPizzas] = useState([]);
   const [selectedPizza, setSelectedPizza] = useState(null);
@@ -21,7 +20,7 @@ const AdminPage = () => {
   
 
   useEffect(() => {
-    axios.get('http://localhost/api/pizzas')
+    axios.get('http://localhost/api/pizzas', config)
     
       .then(response => {
         setPizzas(response.data);
@@ -29,7 +28,7 @@ const AdminPage = () => {
       .catch(error => {
         console.error('Error fetching data: ', error);
       });
-  }, []);
+  }, );
 
   useEffect(() => {
   }, [pizzas]);
@@ -43,7 +42,7 @@ const AdminPage = () => {
 
   const handleSubmit = () => {
     if (selectedPizza) {
-      axios.put(`http://localhost/api/pizzas/${selectedPizza.id}`, pizzaData)
+      axios.put(`http://localhost/api/pizzas/${selectedPizza.id}`, pizzaData , config)
         .then(response => {
           setPizzas(pizzas.map(pizza => (pizza.id === selectedPizza.id ? response.data : pizza)));
           resetForm();
@@ -74,7 +73,7 @@ const AdminPage = () => {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost/api/pizzas/${id}`)
+    axios.delete(`http://localhost/api/pizzas/${id}`, config)
       .then(() => {
         setPizzas(pizzas.filter(pizza => pizza.id !== id));
       })
@@ -153,18 +152,19 @@ const AdminPage = () => {
       <div>
         <h2 className="mb-3">Pizzas</h2>
         <ul className="list-unstyled">
-          {pizzas.map(pizza => (
-            <li className="mb-2">
+             {pizzas.map(pizza => (
+             <li key={pizza.id} className="mb-2">
               <div className="d-flex justify-content-between align-items-center">
-                <span>{pizza.name} - ${pizza.price}</span>
-                <div>
-                  <button className="btn btn-warning me-2" onClick={() => handleEdit(pizza)}>Edit</button>
-                  <button className="btn btn-danger" onClick={() => handleDelete(pizza.id)}>Delete</button>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
+              <span>{pizza.name} - ${pizza.price}</span>
+       <div>
+          <button className="btn btn-warning me-2" onClick={() => handleEdit(pizza)}>Edit</button>
+          <button className="btn btn-danger" onClick={() => handleDelete(pizza.id)}>Delete</button>
+        </div>
+      </div>
+    </li>
+  ))}
+</ul>
+
       </div>
     </div>
   );

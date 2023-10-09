@@ -60,8 +60,8 @@ const Header = () => {
                 </NavLink>
               )}
               {username === 'admin' && isLoggedIn && (
-                <NavLink className="nav-link" to="/manage-pizzas">
-                  Manage Pizzas
+                <NavLink className="nav-link" to="/AdminPage">
+                  Admin Page
                 </NavLink>
               )}
               {isLoggedIn && (

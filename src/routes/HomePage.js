@@ -6,9 +6,6 @@ import SearchBar from '../components/SearchBar';
 import { SimpleDropdown } from 'react-js-dropdavn';
 import 'react-js-dropdavn/dist/index.css';
 import './styles.scss'; 
-import AuthContext from '../contexts/AuthContext';
-import AddPizza from '../admin/AdminPage';
-
 
 const HomePage = () => {
   const { addToCart, cartState } = useCart();
@@ -17,7 +14,6 @@ const HomePage = () => {
   const [sortType, setSortType] = useState('');
   const [displayedPizzas, setDisplayedPizzas] = useState([]);
   const [searchError, setSearchError] = useState('');
-  const { isLoggedIn, username } = useContext(AuthContext);
 
   const data = [
     {label: 'Sort by Name (A-Z)', value: 'nameAsc'},

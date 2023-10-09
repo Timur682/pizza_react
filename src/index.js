@@ -25,7 +25,6 @@ root.render(
                         <CartContextProvider>
                             <App />
                           </CartContextProvider>
-
                         </BrowserRouter>
                     </DarkModeContextWrapper>
                 </AuthContextProvider>

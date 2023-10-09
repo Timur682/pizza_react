@@ -13,6 +13,7 @@ import { CartContextProvider } from "./contexts/CartContext";
 import Cart from "./components/Cart"; 
 import Unauthorized from './routes/Unauthorized';
 import AdminPage from './admin/AdminPage';
+import ProtectedRoute from './routes/ProtectedRoute';
 
 const App = () => {
     const { isLoggedIn } = useContext(AuthContext); 
@@ -30,7 +31,8 @@ const App = () => {
                     <Route path="/card" element={<Card />} />
                     <Route path="/cart" element={<Cart />} /> 
                     <Route path="/unauthorized" element={<Unauthorized />} />
-                    <Route path="/manage-pizzas" element={<AdminPage />} />
+                    <Route element={<ProtectedRoute />}/>
+                     <Route path="/AdminPage" element={<AdminPage />} />
 
                 </Routes>
                 <Footer />

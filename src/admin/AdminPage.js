@@ -44,6 +44,7 @@ const AdminPage = () => {
         .then(response => {
           setPizzas(pizzas.map(pizza => (pizza.id === selectedPizza.id ? response.data : pizza)));
           resetForm();
+          setSelectedPizza(null); 
         })
         .catch(error => {
           console.error('Error updating pizza: ', error);
@@ -53,12 +54,14 @@ const AdminPage = () => {
         .then(response => {
           setPizzas([...pizzas, response.data]);
           resetForm();
+          setSelectedPizza(null); 
         })
         .catch(error => {
           console.error('Error creating pizza: ', error);
         });
     }
   };
+  
 
   const handleEdit = (pizza) => {
     setSelectedPizza(pizza);

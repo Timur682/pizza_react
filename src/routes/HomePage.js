@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext  } from 'react';
+import React, { useState, useEffect  } from 'react';
 import { Container, Card, Button, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import { useCart } from '../contexts/CartContext';
@@ -131,7 +131,7 @@ const HomePage = () => {
                   <Card.Body>
                   <Card.Title className="card-title">{pizza.name}</Card.Title>
                   <Card.Text className="card-text">{pizza.description}</Card.Text>
-                   <Card.Text className="price">{"$"+pizza.price}</Card.Text>
+                   <Card.Text className="price">{pizza.price}</Card.Text>
                     <Button variant="primary" className="order-button" onClick={() => handleAddToCart(pizza)}>
                      Order Now
                    </Button>

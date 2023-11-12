@@ -63,7 +63,7 @@ const HomePage = () => {
     const searchTermLower = searchTerm.toLowerCase();
 
     if (!searchTermLower.trim()) {
-        // Если строка поиска пуста, показываем все пиццы
+        // If the search string is empty, show all pizzas
         setDisplayedPizzas(pizzas);
         return;
     }

@@ -25,19 +25,21 @@ A simple web application for ordering pizzas.
 
 ## Installation
 
-1. Clone the repository:
+1. Run the backend from https://github.com/Timur682/pizza
+
+2. Clone the repository:
    git clone https://github.com/Timur682/pizza_react.git
    
-2. Navigate to the project directory:
+3. Navigate to the project directory:
 cd pizza_react
 
-3. Install the dependencies:
+4. Install the dependencies:
 npm install
 
-4. Start the development server:
+5. Start the development server:
 npm start
 
-5. Open your browser and navigate to http://localhost:3000
+6. Open your browser and navigate to http://localhost:3000
 
 Usage
 Use the search bar to search for pizzas by name or price.
